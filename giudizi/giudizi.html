@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>POF giudizi</title>
+</head>
+<body>
+	    <!-- 1. Define some markup -->
+<h3>1-3</h3> 
+	<span id="tre" class="pof">
+    Il non approfondimento di alcun lavoro
+    </span>
+    <button class="btn" data-clipboard-action="copy" data-clipboard-target="#tre">Copy</button>
+     <br>
+
+	<span id="tre01">
+		non svolge l'esercitazione assegnata
+    </span>
+    <button class="btn" data-clipboard-action="copy" data-clipboard-target="#tre01">Copy</button>
+    <br>
+    
+	
+<h3>4</h3> 
+	<span id="quattro" class="pof">
+		La sensibile diffusione di lacune 
+	</span>
+	<button class="btn" data-clipboard-action="copy" data-clipboard-target="#quattro">Copy</button>
+	<br>
+ 
+	<span id="quattro01" >
+		non conclude l'esercitazione nel tempo assegnato dimostrando la sensibile diffusione di lacune 
+    </span>
+    <button class="btn" data-clipboard-action="copy" data-clipboard-target="#quattro01">Copy</button>
+	<br>
+
+
+<h3>5</h3>
+	<span id="cinque">
+		L’incertezza diffusa e la misconoscenza di qualche argomento (specie se essenziale) 
+    </span>
+    <button class="btn" data-clipboard-action="copy" data-clipboard-target="#cinque">Copy</button>
+	<br>   
+ 
+	<span id="cinque01" >
+		non conosce alcuni degli argomenti indispensabili alla conclusione dell'esercitazione che conduce in modo incerto.
+    </span>
+    <button class="btn" data-clipboard-action="copy" data-clipboard-target="#cinque01">Copy</button>
+	<br> 
+    
+    
+  
+<h3>6</h3>
+	<span id="sei">
+		Il possesso dei requisiti minimi di conoscenza e di capacità d’uso personale di ogni singolo
+		argomento trattato nello svolgimento del programma, con particolare riguardo all’acquisizione dei “concetti” fondamentali
+		(anche se con qualche aiuto e avvio al ragionamento logico-deduttivo, ove sia presente incertezza)  
+	</span>
+	<button class="btn" data-clipboard-action="copy" data-clipboard-target="#sei">Copy</button>
+	<br>
+  
+	<span id="sei01" >
+		possiede i requisiti minimi e con qualche aiuto conclude l'esercitazione assegnata.
+    </span>
+    <button class="btn" data-clipboard-action="copy" data-clipboard-target="#sei01">Copy</button>
+	<br>
+
+
+<h3>7</h3>
+	<span id="sette" class="pof">
+		In senso positivo l’autosufficienza e la sostanziale padronanza degli argomenti 
+	</span>
+    <button class="btn" data-clipboard-action="copy" data-clipboard-target="#sette">Copy</button>
+	<br>
+	
+	<span id="sette01" >
+		svolge l'esercitazione con padronanza e autonomia. 
+    </span>
+    <button class="btn" data-clipboard-action="copy" data-clipboard-target="#sette01">Copy</button>
+	<br>
+		
+		
+		
+<h3>8</h3>
+	<span id="otto" class="pof" >
+		La sicurezza e la padronanza 
+	</span>
+    <button class="btn" data-clipboard-action="copy" data-clipboard-target="#otto">Copy</button>
+    <br>
+    
+	<span id="otto01" >
+    svolge l'esercitazione con padronanza,autonomia, sicurezza e piena comprensione degli argomenti necessari. 
+          
+    </span>
+    <button class="btn" data-clipboard-action="copy" data-clipboard-target="#otto01">Copy</button>
+	<br>
+		
+<h3>9-10</h3>
+	<span id="nove">
+		L’arricchimento eventuale con materiale e
+		conoscenze aggiuntive con ricerche personali
+		spontanee 
+	</span> 
+	<button class="btn" data-clipboard-action="copy" data-clipboard-target="#nove">Copy</button>
+	<br>
+	
+	<span id="nove01" >
+    svolge l'esercitazione con padronanza,autonomia, sicurezza dimostrando piena comprensione degli argomenti necessari.
+    Svolge un lavoro straordinario di approfondimento e ricerca. 
+          
+    </span>
+    <button class="btn" data-clipboard-action="copy" data-clipboard-target="#nove01">Copy</button>
+	<br>
+   
+
+
+
+
+
+
+
+
+
+    <!-- 2. Include library -->
+    <script src="dist/clipboard.min.js"></script>
+
+    <!-- 3. Instantiate clipboard -->
+    <script>
+    var clipboard = new Clipboard('.btn');
+
+    clipboard.on('success', function(e) {
+        console.log(e);
+    });
+
+    clipboard.on('error', function(e) {
+        console.log(e);
+    });
+    </script>
+</body>
+</html>
