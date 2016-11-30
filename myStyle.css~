@@ -1,0 +1,19 @@
+textarea {
+    font-family: monospace;
+}
+p {
+    font-family: monospace;
+}
+h1 {
+    color: maroon;
+    margin-left: 40px;
+} 
+div.box
+{
+    width:500x !important;  width /**/:200px;
+    height:300px !important; height /**/: 200px;
+    padding: 4px;
+    border:1px solid #EEE; border-right:0 solid;
+    background:url(gradient.png) repeat-x fixed top left;
+    overflow:auto
+}
