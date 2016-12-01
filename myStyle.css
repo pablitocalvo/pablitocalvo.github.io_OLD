@@ -20,3 +20,36 @@ div.box
 pre {
     width: 80ch; /* classic terminal width for code sections */
 }
+
+
+#sorgente
+{ 	 width:500px !important;  width /**/:200px;
+    height:300px !important; height /**/: 200px;
+    padding: 4px;
+    border:1px solid #EEE; border-right:0 solid;
+     overflow:auto
+
+
+}
+
+#sol_utente
+{
+ font-family: monospace;
+width:500px !important;  width /**/:200px;
+    height:300px 
+}
+
+/* http://colintoh.com/blog/display-table-anti-hero#responsive */
+.boxes {
+  display:table;
+  width: 100%;
+  height: 100%;
+}
+
+
+.box {
+  display: table-cell;
+  /*text-align: center; */
+  /*vertical-align:middle;*/
+  /*line-height: 13em;*/
+}
