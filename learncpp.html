@@ -9,21 +9,21 @@
 </head>
 <body>
 		<script src="myScript.js"></script>
+		<script src="jsdiff.js"></script>
+	
+	
 	<script type="text/JavaScript">
-//courtesy of BoogieJack.com
-// http://stackoverflow.com/questions/3020715/disabling-copy-paste-in-a-web-page
-function killCopy(e){
-return false
-}
-function reEnable(){
-return true
-}
-document.onselectstart=new Function ("return false")
-if (window.sidebar){
-document.onmousedown=killCopy
-document.onclick=reEnable
-}
-</script>
+		function valutaDiff()
+		{
+			String sol_utente=document.getElementById("sol_utente").value;
+			String soluzione=document.getElementById("soluzione").innerHTML ;
+			
+			String differenze ;
+			
+			
+			
+		}
+	</script>
 	<div class="boxes">
 		<div class="box">
 			Sorgente:
@@ -36,7 +36,19 @@ document.onclick=reEnable
 			<textarea id="sol_utente">
 			</textarea>
 		</div>
+		<br>
+		<button onclick=valutaDiff()>valuta</button>
 	</div>
+
+
+<div id="soluzione">hello
+ world!</div>
+le differenze:
+<pre>
+<div id="differenze"></div>
+
+</pre>
+
 
 
 </body>
