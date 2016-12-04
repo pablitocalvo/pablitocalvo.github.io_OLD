@@ -8,15 +8,7 @@ h1 {
     color: maroon;
     margin-left: 40px;
 } 
-div.box
-{
-    width:500x !important;  width /**/:200px;
-    height:300px !important; height /**/: 200px;
-    padding: 4px;
-    border:1px solid #EEE; border-right:0 solid;
-    background:url(gradient.png) repeat-x fixed top left;
-    overflow:auto
-}
+
 pre {
     width: 80ch; /* classic terminal width for code sections */
 }
@@ -28,7 +20,7 @@ pre {
     padding: 4px;
     border:1px solid #EEE; border-right:0 solid;
      overflow:auto
-
+font-family: monospace;
 
 }
 
@@ -52,4 +44,5 @@ width:500px !important;  width /**/:200px;
   /*text-align: center; */
   /*vertical-align:middle;*/
   /*line-height: 13em;*/
+  width: 50%;
 }

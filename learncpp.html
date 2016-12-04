@@ -7,47 +7,38 @@
 
 	
 </head>
-<body>
-		<script src="myScript.js"></script>
-		<script src="jsdiff.js"></script>
+<body onload=inizializza()>
 	
 	
-	<script type="text/JavaScript">
-		function valutaDiff()
-		{
-			String sol_utente=document.getElementById("sol_utente").value;
-			String soluzione=document.getElementById("soluzione").innerHTML ;
-			
-			String differenze ;
-			
-			
-			
-		}
-	</script>
+	<script src="myScript.js"></script>
+	<script src="jsdiff.js"></script>
+	
+		
 	<div class="boxes">
 		<div class="box">
 			Sorgente:
-			<div id="sorgente">
-			</div>
+			<div id="sorgente"></div>
+			<button onclick="carica_esercizio()">carica</button>
+
 		</div>
 
 		<div class="box">
 			Output: <br>
-			<textarea id="sol_utente">
-			</textarea>
+			<textarea id="sol_utente" ></textarea>
+			<br>
+			<button onclick="verifica()">verifica</button>
+			<br>
+			Soluzione :
+			
+			<pre><div id="soluzione"></div></pre>
+			<br>
+			Correzione :
+			<pre><span id="correzione"></span></pre>
+			
 		</div>
 		<br>
-		<button onclick=valutaDiff()>valuta</button>
+		
 	</div>
-
-
-<div id="soluzione">hello
- world!</div>
-le differenze:
-<pre>
-<div id="differenze"></div>
-
-</pre>
 
 
 
