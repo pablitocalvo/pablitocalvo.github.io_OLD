@@ -1,13 +1,4 @@
-textarea {
-    font-family: monospace;
-}
-p {
-    font-family: monospace;
-}
-h1 {
-    color: maroon;
-    margin-left: 40px;
-} 
+
 
 pre {
     width: 80ch; /* classic terminal width for code sections */
@@ -15,20 +6,24 @@ pre {
 
 
 #sorgente
-{ 	 width:500px !important;  width /**/:200px;
-    height:300px !important; height /**/: 200px;
+{ 	
+	
     padding: 4px;
-    border:1px solid #EEE; border-right:0 solid;
-     overflow:auto
-font-family: monospace;
+    border: 1px solid black;
+    overflow-y:auto;
+	font-family: monospace;
 
 }
 
 #sol_utente
 {
  font-family: monospace;
-width:500px !important;  width /**/:200px;
-    height:300px 
+ width: 60ch+4px; 
+ height:300px ;
+ overflow-x: auto;
+ overflow-y: scroll;
+ border: 1px solid black;
+    
 }
 
 /* http://colintoh.com/blog/display-table-anti-hero#responsive */
