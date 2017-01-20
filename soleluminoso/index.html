@@ -7,12 +7,19 @@
         width: 100%;
        }
     </style>
+
   </head>
   <body>
     <h3>My Google Maps Demo</h3>
+    <div id="lat"></div>
+    <div id="long"></div>
     <div id="map"></div>
     <script>
       function initMap() {
+		  
+		var tagLat=document.getElementById("lat");
+		var tagLong=document.getElementById("long");
+		
         var roma  = {lat: 41.8811637, lng: 12.5118123};
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 14,
@@ -22,7 +29,22 @@
           position: roma,
           map: map
         });
+        
+        google.maps.event.addListener(map,'click',function() {
+			alert ("hai cliccato su ..");
+		})
+		google.maps.event.addListener(map,'mousemove',function( event ) {
+			tagLat.innerHTML =event.latLng.lat();
+			tagLat.innerHTML =event.latLng.lat();
+			
+		})
+		
+		
+		
+		
       }
+      
+
     </script>
     <script async defer    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBdbRL2VGwayhbCtVYinDggMA-3cSElOs&callback=initMap">
                    
