@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<course>
+ <id>{cd6ab2ed-c499-4320-95a3-c67d20549aff}</id>
+ <title>Paolo Corso umano</title>
+ <description>preso dal pdf </description>
+ <keyboardLayout>it</keyboardLayout>
+ <lessons>
+  <lesson>
+   <id>{b90537d5-5ab9-4130-b6c4-5a4341c7befe}</id>
+   <title>Lesson 1</title>
+   <newCharacters>jf</newCharacters>
+   <text>fff jjj fff jjj fff jjj fff jjj fff jjj fff jjj fff jjj fff
+ffj jjf ffj jjf ffj jjf ffj jjf ffj jjf ffj jjf ffj jjf ffj
+fjf jfj fjf jfj fjf jfj fjf jfj fjf jfj fjf jfj fjf jfj fjf
+ffj jfj jjf jjf fjf ffj jfj fjj fjf jjf ffj jfj ffj jfj ffj
+jjf jfj ffj jfj ffj jfj jfj jjf jfj jfj ffj fjf jjf ffj jjf</text>
+  </lesson>
+  <lesson>
+   <id>{605acb55-a387-483a-aeef-96d5d18a4966}</id>
+   <title>lesson 2</title>
+   <newCharacters>kd</newCharacters>
+   <text>ddd kkk ddd kkk ddd kkk ddd kkk ddd kkk ddd kkk ddd kkk ddd
+ddk kkd ddk kkd ddk kkd ddk kkd ddk kkd ddk kkd ddk kkd ddk
+dkd kdk ddd kkk dkd kdk kkk ddd dkd kdk ddd kkk dkd kdk kkk
+fdf jkj fdf jkj dfd jkj fdf jkj fdf jkj fdf jkj fdf jkj fdf
+ddf kkj ffd jjk kdf dkj kdf dkj fdj jkf fdj jkf fjk jfd fjk</text>
+  </lesson>
+  <lesson>
+   <id>{e1d83f19-9bb3-4832-9f2e-e2d428b5e683}</id>
+   <title>lesson 3</title>
+   <newCharacters>ls</newCharacters>
+   <text>sss lll sss lll sss lll sss lll sss lll sss lll sss lll sss
+ssl lls ssl lls ssl lls ssl lls ssl lls ssl lls ssl lls ssl
+sls lsl sls lsl sls lsl sls lsl sls lsl sls lsl sls lsl sls
+sdf lkj fds jkl sdf lkj fds jkl sdf lkj fds jkl sdf lkj fds
+ssd ssf ssj ssk ssl llk llj llf lld lls ffs jjl dds kkl ssd
+sdk lkd slk ksd jfk lsk lkd slf jkd slk skd ksf lsk dkf jsl</text>
+  </lesson>
+  <lesson>
+   <id>{8592237c-bfdd-424f-b15a-6719e6716606}</id>
+   <title>Lesson 4</title>
+   <newCharacters>a m</newCharacters>
+   <text>aaa mmm aaa mmm aaa mmm aaa mmm aaa mmm aaa mmm aaa mmm aaa
+aam mma aam mma aam mma aam mma aam mma aam mma aam mma aam
+ama mam ama mam ama mam ama mam ama mam ama mam ama mam ama
+aas aal mms mml aad aak mmd mmk aaf aaj mmf mmd aam mma aas
+asd mlk dsa klm adf mkj fda jkm asd mlk dsa klm adf mkj fda
+dal lam das sam las fam lad jak kam lal lad dak mas sla sda</text>
+  </lesson>
+  <lesson>
+   <id>{84837f8e-611c-4309-9eba-4304b3eff457}</id>
+   <title>Lesson 5</title>
+   <newCharacters>gh</newCharacters>
+   <text>fgf jhj fgf jhj fgf jhj fgf jhj fgf jhj fgf jhj fgf jhj fgf
+ggf hhj ggf hhj ggf hhj ggf hhj ggf hhj ggf hhj ggf hhj ggf
+agh sgh dgh fgh ljg kjg mjg agh sgh dgh fgh ljg kjg mjg agh
+gas gad has had sad das fas fad mad mas maf mag gah gam gal
+asdfg hjklm asdfg hjklm asdfg hjklm asdfg hjklm asdfg hjklm</text>
+  </lesson>
+  <lesson>
+   <id>{f5a7177f-933c-40e6-9328-6923da00dbe7}</id>
+   <title>lesson 6</title>
+   <newCharacters>lda </newCharacters>
+   <text>sala alla falda sala alla falda sala alla falda sala alla 
+gamma salsa salma allaga maga glassa ammassa mamma galla 
+la mamma la maga la salsa la malga la gamma la sala la madam
+falsa afa amalgama magma falsa afa amalgama magma falsa afa 
+smash flash shall slash gas dash had ham has slam half glad </text>
+  </lesson>
+  <lesson>
+   <id>{4541f560-d8c3-43ea-aaf7-e2f1cc38fb4f}</id>
+   <title>lesson 7</title>
+   <newCharacters>AMSLGD</newCharacters>
+   <text>Magda Alda Magda Alda Magda Alda Magda Alda Magda Alda Magda
+Malaga Alaska Allah Saddam Malaga Alaska Allah Saddam Malaga
+Mafalda Ada Saddam Almada Alma Lalla Mafalda Ada Saddam Alma
+La maga ama la salsa La maga sfalda la glassa La maga ama la
+Saldala Sfamala Ammassala Affamala Saldala Sfamala Ammassala
+Alma salga dalla dama ALMA SALGA DALLA DAMA Alma salga dalla</text>
+  </lesson>
+  <lesson>
+   <id>{5bb5eaed-550c-41d1-ad67-c73f480d1922}</id>
+   <title>lesson 8</title>
+   <newCharacters>eiE</newCharacters>
+   <text>ded kik ded kik ded kik ded kik ded kik ded kik ded kik ded
+ede jik ede jik ede jik ede jik ede jik ede jik ede jik ede
+fede lesi semi mesi fede lesi semi mesi fede lesi semi mesi
+sale essi fasi mise sale essi fasi mise sale essi fasi mise
+fedeli figlie affidi legami simili fedeli figlie affidi
+legami maglia ideale diadema ghisa aghi ideale simile fiele
+miele sedi Amalia Alessia Adelma Adele Emilia Lidia Gaia
+Elisa Emma Gemma</text>
+  </lesson>
+  <lesson>
+   <id>{b7f89490-feb0-4110-8887-e66bf545b642}</id>
+   <title>lesson 9</title>
+   <newCharacters>urI</newCharacters>
+   <text>frf juj frf juj frf juj frf juj frf juj frf juj frf juj frf
+gfr hju gfr hju gfr hju gfr hju gfr hju gfr hju gfr hju gfr
+hju sera fusi sera fusi sera fusi sera fusi sera fusi sera
+fusi edera umili edera umili edera umili edera umili edera
+umili eseguire dirigere diramare riguardare sfumare
+desiderare urlare Luisa dirige i giri di affari delle
+filiali e firma gli auguri Iris desidera guardare il film
+degli allarmi delle guerre russe</text>
+  </lesson>
+  <lesson>
+   <id>{6493dfd1-c5a7-43c4-84cb-7205e8328be2}</id>
+   <title>lesson 10 </title>
+   <newCharacters>ytFTo</newCharacters>
+   <text>ftg jyh ftg jyh Ftg jyh ftg jyh Ftg jyh ftg jyh Ftg jyh ftg
+jyh art luy art luy art luy art luy art luy art luy art luy
+art luy tre tir tui yes tre tir tui yes tre tir tui yes tre
+tir tui yes try that tea years tears thursday myself yard
+lady yesterday strada artisti turisti tigre artrite urti
+mirtilli armati ratti I trattori e gli aratri I turisti
+sulla strada di Trieste tare gatti sarti urti erta arte
+letti effetti strategia triste</text>
+  </lesson>
+ </lessons>
+</course>
