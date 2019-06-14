@@ -1,0 +1,144 @@
+=====================
+Set up DHCP server
+https://wiki.debian.org/PXEBootInstall#Set_up_TFTP_server
+=========================================================
+#
+apt install isc-dhcp-server
+#
+systemctl disable isc-dhcp-server
+#
+nano /etc/default/isc-dhcp-server
+
+rimuovere IPV6 .....
+	
+
+#
+nano /etc/dhcp/dhcpd.conf
+
+----------------------------------------------------------
+default-lease-time 600;
+max-lease-time 7200;
+
+allow booting;
+
+subnet 192.168.1.0 netmask 255.255.255.0 {
+  range 192.168.1.200 192.168.1.253;
+  option broadcast-address 192.168.1.255;
+  option routers 192.168.1.254;             # our router
+  option domain-name-servers 8.8.8.8; # our router, again
+  filename "pxelinux.0"; # (this we will provide later)
+}
+
+group {
+  next-server 192.168.1.199;                # our Server
+  host tftpclient {
+      filename "pxelinux.0"; # (this we will provide later)
+  }
+}
+
+--------------------------------------------------------------
+
+# systemctl restart isc-dhcp-server
+
+
+
+==================
+Set up TFTP server 
+
+https://wiki.debian.org/PXEBootInstall#Set_up_TFTP_server
+==================
+
+#
+apt-get install tftpd-hpa
+
+#
+systemctl disable tftpd-hpa
+
+# nano /etc/default/tftpd-hpa
+
+TFTP_USERNAME="tftp"
+TFTP_DIRECTORY="/srv/tftp"
+TFTP_ADDRESS="0.0.0.0:69"
+TFTP_OPTIONS="--secure"
+
+# systemctl restart tftpd-hpa
+
+/////ora il client non trova il file pxelinux.0 ...
+
+====================
+Setting boot image ....
+
+
+======================
+#
+apt install pxelinux
+
+#
+cp -vax /usr/lib/PXELINUX/pxelinux.0 /srv/tftp/
+
+/////ora il client non trova ldlinux.c32  ...
+
+#
+cp -vax /usr/lib/syslinux/modules/bios/ldlinux.c32 /srv/tftp/
+
+/////ora il client unable to locate configuration file
+
+
+#
+mkdir /srv/tftp/pxelinux.cfg
+
+#
+nano /srv/tftp/pxelinux.cfg/default 
+--------------------------------------------------------
+default Debian
+prompt 1
+timeout 0
+label Debian
+kernel vmlinuz
+append rw initrd=initrd.img root=/dev/nfs ip=dhcp nfsroot=192.168.1.199:/srv/tinix boot=live components persistence live-config.debug loc$
+
+
+--------------------------------------------------------------------------
+/////ora il client loading vmlinuz.pxe : no such file or directory
+/////// wireshark segnala TFTP error: file not found....
+
+#
+cp -vax /lib/live/mount/rootfs/filesystem.squashfs/vmlinuz /srv/tftp/
+
+#
+cp -vax /lib/live/mount/rootfs/filesystem.squashfs/initrd.img  /srv/tftp/
+
+==================================
+setting NFS file system 
+
+==================================
+#
+mkdir /srv/tinix
+
+DETERMINARE la partizione della penna esempio /dev/sdb1
+
+#
+mount /dev/sdb1 /srv/tinix
+
+
+#
+apt-get install nfs-kernel-server
+#
+systemctl disable nfs-kernel-server
+#
+nano /etc/exports
+-------appendi-------------
+/srv/tinix *(rw,async,no_subtree_check,no_root_squash)
+--------------------------------------------------------------------
+
+
+#
+systemctl restart nfs-kernel-server
+
+
+
+=======================================================================================
+=======================================================================================
+=======================================================================================
+=======================================================================================
+systemctl start isc-dhcp-server;systemctl start tftpd-hpa;systemctl start nfs-kernel-server
