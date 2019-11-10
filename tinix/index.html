@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<head>
+<style >
+
+code {
+  background-color: #eee;
+  border: 1px solid #999;
+  display: block;
+  padding: 20px;
+}
+
+
+
+</style>
+
+</head>
+<html>
+
+<ul>
+
+<li> determinare il nome della penna su cui sta girando tini-X
+	<br>
+	<b>con la sola penna di tini-X inserita</b>  aprire un terminale e 
+	digitare il comando : 
+<br>
+<code>
+	...# lsblk -do name,tran | grep usb
+
+</code>	
+<br>
+
+	l'output di una riga sola dovrebbe somigliare a questo:
+<br>
+	
+	<code>
+	  ...# sdb  usb 
+   </code>	
+<br>
+
+
+se vi sono piu righe di output ...TO BE CONTIUNED
+altrimenti continuare, lanciando il comando:
+
+<br>
+	<code>
+	...# pensource="sdb" 
+	</code>	
+<br>
+</li>
+<li> insreire ora la penna su cui installare tini-X, 
+<br>aspettare un paio di secondi e poi lanciare il comando: <br>
+<code>
+
+	...#	lsblk -do name,tran | grep usb 
+	
+</code> 
+
+<br>
+l'output di 2 righe  dovrebbe somigliare a questo:
+
+<br>
+	<code>
+	  ...# sdb  usb <br>
+	  ...# sdc  usb      <== questa è la penna da installare !!!!
+   </code>	
+
+<br>
+"sdc" e la pennetta da installare ....
+
+continuare, lanciando il comando:
+
+<br>
+	<code>
+	...# pendest="sdc" 
+	</code>	
+<br>
+</li>
+
+<li>spiana la pennetta
+<br>
+	<code>
+   ...# parted /dev/$pendest -s mklabel msdos
+	</code>	
+<br>
+</li>
+
+<li> crea la partizione per ospitare tinix 
+ <br>
+	<code>
+   ...#  parted /dev/$pendest -s mkpart primary fat32 1MiB 3000MiB
+
+</code>	
+<br>
+</li>
+<li> formatta la partizione con fat32
+ <br>
+	<code>
+   ...#  mkfs.fat -n "DEBIAN_LIVE" -F 32 /dev/${pendest}1
+</code>	
+<br>
+</li>
+<li> copia i file di tinix nella partizione.. 
+
+<br>
+	<code>
+   ...#  mkdir pendest<br>
+   ...#  mount /dev/${pendest}1 pendest<br>
+   ...#  mkdir pensource<br>
+   ...#  mount /dev/${pensource}1 pensource<br>
+   ...#  cp -R pensource/* pendest/<br>
+   ...#  sync<br>
+   </code>	
+<br>
+</li>
+<li> installa il boot-manager syslinux....
+<br>
+	<code>
+	...#  syslinux -i /dev/${pendest}1<br>
+  
+   ...#  dd conv=notrunc bs=440 count=1 if=/usr/lib/SYSLINUX/mbr.bin of=/dev/$pendest<br>
+   ...#  parted /dev/$pendest set 1 boot on<br>
+    </code>	
+<br>
+</li>
+
+<li> Creazione partizione per la persistenza...
+
+<br>
+	<code>
+  ... # echo -e "n\np\n2\n\n\nw" |fdisk /dev/$pendest <br>
+  ... # mkfs.ext4 /dev/${pendest}2 <br>
+  ... # e2label /dev/${pendest}2 persistence <br>
+  ... # mkdir per <br>
+  ... # mount /dev/${pendest}2 per<br>
+  ... # echo "/ union" >> per/persistence.conf ; sync <br>
+  ... # umount  per
+   </code>	
+<br>
+
+</li>
+
+ 
+
+
+<br>
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+
+
+
+
+
+
+</ul>
+
+
+spiana la pennetta
+
+   parted /dev/sdb -s mklabel msdos
+
+
+  
+  
+  
+
+###############
+comando
+
+lsblk -do name,tran,rm
+
+es. output
+TRAN   NAME  RM
+       loop0  0
+sata   sda    0
+sata   sdb    0
+usb    sdc    1
+ata    sr0    1
+
+
+
+
+#################
+
+
+/var/lib/usbutils/usb.ids
+
+
+########################
+
+
+installare syslinux
+
+apt install syslinux
+##############################
+comando utile 
+mountuing of img file
+https://www.linuxquestions.org/questions/linux-general-1/how-to-mount-img-file-882386/
+
+
+in questo caso il nome della pennetta è sdb
+
+nel comando che segue sostituire sdX con il nome della pennetta (esempio sdb)
+root@tiniX:/home/user# disco="sdX"
+Scaricare l'ultima immagine e copiare l'immagine sulla pennetta con i comandi :
+root@tiniX:/home/user# wget  http://192.168.21.200/tinix/tinix-latest.img
+root@tinix:/home/user# dd if=tinix-latest.img of=/dev/$disco ; sync
+Attenzione che queso comando DD impiega parecchio, portate pazienza..(cira 10 minuti)
+
+
+
+root@tiniX:/home/user# echo -e "n\np\n2\n\n\nw" |fdisk /dev/$disco
+
+
+il comando che segue crea il file system sulla partizione della persistenza (impiega circa 1 minuto)
+
+root@tiniX:/home/user# mkfs.ext4 /dev/${disco}2
+root@tiniX:/home/user# e2label /dev/${disco}2 persistence
+root@tiniX:/home/user# mkdir per
+Se avete creato in precedenza una pennetta l'ultimo comando comunica “file gia esistente o giu di li”
+
+root@tiniX:/home/user# mount /dev/${disco}2 per
+root@tiniX:/home/user# echo "/ union" >> per/persistence.conf ; sync
+root@tiniX:/home/user# umount per
+ora la pennetta è pronta, smontarla e collaudarla. Happy 'tiniXing !
+
+ps : se avete effettuato la copia da un sistema live persistente si consiglia rimuovere l'immagine (2GB) per liberare spazio dalla partizione persistente.
+
+Il comando:
+
+root@tiniX:/home/user# rm tinix-latest.img
+
+root@hexacore:/PAOLO/tini-X_10# 
+
+
+################
+montare img file ........
+https://www.linuxquestions.org/questions/linux-general-1/how-to-mount-img-file-882386/
+
+
+
+</html>
+	
