@@ -14,7 +14,7 @@ code {
 </style>
 <script>
  function copia( stringa ){ 
-	 alert ( stringa); 
+	// alert ( stringa); 
 	 const el = document.createElement('textarea');
   el.value = stringa;
   el.setAttribute('readonly', '');
@@ -31,16 +31,29 @@ code {
 </script>
 </head>
 <html>
-
+	<h2> Creare tinix da una tinix </h2>
 <ul>
+<li> aprire un terminale e digitare :
+<br>
+<code>
+	user@tiniX:~$ # sudo su
 
+</code>	
+<br>
+<code class=output>
+	root@tiniX:/home/user# # 
+
+</code>	
+<br>
+	
+	
 <li> determinare il nome della penna su cui sta girando tini-X
 	<br>
 	<b>con la sola penna di tini-X inserita</b>  aprire un terminale e 
 	digitare il comando : 
 <br>
 <code>
-	...# lsblk -do name,tran | grep usb
+	...#   lsblk -do name,tran | grep usb
 
 </code>	
 <br>
@@ -49,7 +62,7 @@ code {
 <br>
 	
 	<code>
-	  ...# sdb  usb 
+	  ...#    sdb  usb 
    </code>	
 <br>
 
