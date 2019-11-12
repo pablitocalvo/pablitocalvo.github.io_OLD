@@ -138,9 +138,9 @@ continuare, lanciando il comando:
    ...#  mount /dev/${pendest}1 pendest<br>
    ...#  mkdir pensource<br>
    ...#  mount /dev/${pensource}1 pensource<br>
-   ...#  cp -R pensource/* pendest/<br>
-   ...#  sync<br>
-   </code>	
+   ...#  cp -R pensource/* pendest/ ; sync <br>
+
+</code>	
 <br>
 </li>
 <li> installa il boot-manager syslinux....
@@ -164,7 +164,7 @@ continuare, lanciando il comando:
   ... # mkdir per <br>
   ... # mount /dev/${pendest}2 per<br>
   ... # echo "/ union" >> per/persistence.conf ; sync <br>
-  ... # umount  per
+  ... # umount  per ; umount pendest ; umount pensource 
    </code>	
 <br>
 
