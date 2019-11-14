@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <head>
 <style >
-
 code {
   background-color: #eee;
   border: 1px solid #999;
   display: block;
   padding: 20px;
 }
-
-
-
 </style>
+<script src="../js-toaster/toast.js"></script>
 <script>
- function copia( stringa ){ 
-	// alert ( stringa); 
-	 const el = document.createElement('textarea');
+ function copia( id ){ 
+  
+//  alert ("id="+ id.innerHTML );
+  stringa= id.innerHTML;
+//  alert(stringa);
+  const el = document.createElement('textarea');
   el.value = stringa;
   el.setAttribute('readonly', '');
   el.style.position = 'absolute';
@@ -24,8 +24,22 @@ code {
   el.select();
   document.execCommand('copy');
   document.body.removeChild(el);
-	 
-	 }
+ 
+ var options = {
+	style: {
+		main: {
+			background: "pink",
+			color: "black"
+		}
+	},
+	settings: {
+		duration: 1000
+	}
+	};
+
+iqwerty.toast.Toast("comando   " + stringa + "   copiato negli appunti" , options);
+//thaks to https://github.com/mlcheng/js-toast	 
+}
  
  
 </script>
@@ -35,61 +49,16 @@ code {
 <ul>
 <li> aprire un terminale e digitare :
 <br>
-<code>
-	user@tiniX:~$ # sudo su
+<code><svg onclick="copia( sudo )" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2 13h4v1H2v-1zm5-6H2v1h5V7zm2 3V8l-3 3 3 3v-2h5v-2H9zM4.5 9H2v1h2.5V9zM2 12h2.5v-1H2v1zm9 1h1v2c-.02.28-.11.52-.3.7-.19.18-.42.28-.7.3H1c-.55 0-1-.45-1-1V4c0-.55.45-1 1-1h3c0-1.11.89-2 2-2 1.11 0 2 .89 2 2h3c.55 0 1 .45 1 1v5h-1V6H1v9h10v-2zM2 5h8c0-.55-.45-1-1-1H8c-.55 0-1-.45-1-1s-.45-1-1-1-1 .45-1 1-.45 1-1 1H3c-.55 0-1 .45-1 1z"></path></svg>
+	
+	user@tiniX:~$ # <span class="copia" id="sudo">sudo su</span>
 
 </code>	
 <br> il terminale dovrebbe apparire ora nel seguente modo:
 <br>	
 <code class=output>
-	root@tiniX:/home/user# # 
 
-</code>	
-<br>
-	
-	<!DOCTYPE html>
-<head>
-<style >
-code {
-  background-color: #eee;
-  border: 1px solid #999;
-  display: block;
-  padding: 20px;
-}
-</style>
-<script>
- function copia( o ){ 
-	// alert ( stringa);
-	stringa= o.parentElement.querySelector('span').innerHTML;
-	
-	 const el = document.createElement('textarea');
-  el.value = stringa;
-  el.setAttribute('readonly', '');
-  el.style.position = 'absolute';
-  el.style.left = '-9999px';
-  document.body.appendChild(el);
-  el.select();
-  document.execCommand('copy');
-  document.body.removeChild(el);
-	 
-	 }
- 
- 
-</script>
-</head>
-<html>
-	<h2> Creare tinix da una tinix </h2>
-<ul>
-<li> aprire un terminale e digitare :
-<br>
-<code>
-	user@tiniX:~$ # sudo su
-
-</code>	
-<br> il terminale dovrebbe apparire ora nel seguente modo:
-<br>	
-<code class=output>
-	root@tiniX:/home/user# # 
+   	root@tiniX:/home/user#  
 
 </code>	
 <br>
@@ -101,7 +70,9 @@ code {
 	digitare il comando : 
 <br>
 <code>
-	...#   lsblk -do name,tran | grep usb
+   <svg onclick="copia( lsblktinix )" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2 13h4v1H2v-1zm5-6H2v1h5V7zm2 3V8l-3 3 3 3v-2h5v-2H9zM4.5 9H2v1h2.5V9zM2 12h2.5v-1H2v1zm9 1h1v2c-.02.28-.11.52-.3.7-.19.18-.42.28-.7.3H1c-.55 0-1-.45-1-1V4c0-.55.45-1 1-1h3c0-1.11.89-2 2-2 1.11 0 2 .89 2 2h3c.55 0 1 .45 1 1v5h-1V6H1v9h10v-2zM2 5h8c0-.55-.45-1-1-1H8c-.55 0-1-.45-1-1s-.45-1-1-1-1 .45-1 1-.45 1-1 1H3c-.55 0-1 .45-1 1z"></path></svg>
+
+	...#   <span class="copia" id="lsblktinix">lsblk -do name,tran | grep usb</span>
 
 </code>	
 <br>
@@ -110,25 +81,29 @@ code {
 <br>
 	
 	<code>
-	  ...#    sdb  usb 
+	  ...#    sdx  usb 
    </code>	
 <br>
 
 
-se vi sono piu righe di output ...TO BE CONTIUNED
-altrimenti continuare, lanciando il comando:
+se vi sono piu righe di output allora sono presenti più pennette collegate  quindi sapete indicare con certezza quale sia ...
+
+se è presente una sola riga come nell esempio eè determinato il nome della pennneta:
 
 <br>
-	<code>
-	...# pensource="sdb" 
-	</code>	
+
+<code><svg onclick="copia( pensource )" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2 13h4v1H2v-1zm5-6H2v1h5V7zm2 3V8l-3 3 3 3v-2h5v-2H9zM4.5 9H2v1h2.5V9zM2 12h2.5v-1H2v1zm9 1h1v2c-.02.28-.11.52-.3.7-.19.18-.42.28-.7.3H1c-.55 0-1-.45-1-1V4c0-.55.45-1 1-1h3c0-1.11.89-2 2-2 1.11 0 2 .89 2 2h3c.55 0 1 .45 1 1v5h-1V6H1v9h10v-2zM2 5h8c0-.55-.45-1-1-1H8c-.55 0-1-.45-1-1s-.45-1-1-1-1 .45-1 1-.45 1-1 1H3c-.55 0-1 .45-1 1z"></path></svg>
+	...# <span class="copia" id="pensource"> pensource="sdx"</span>
+	<=== sostituire sdx con il nome che vi si presenta all'outpput del comando di cui sopra 
+</code>	
 <br>
 </li>
-<li> insreire ora la penna su cui installare tini-X, 
+<li> inserire ora la penna su cui installare tini-X, 
 <br>aspettare un paio di secondi e poi lanciare il comando: <br>
-<code>
 
-	...#	lsblk -do name,tran | grep usb 
+<code><svg onclick="copia( lsblk1 )" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2 13h4v1H2v-1zm5-6H2v1h5V7zm2 3V8l-3 3 3 3v-2h5v-2H9zM4.5 9H2v1h2.5V9zM2 12h2.5v-1H2v1zm9 1h1v2c-.02.28-.11.52-.3.7-.19.18-.42.28-.7.3H1c-.55 0-1-.45-1-1V4c0-.55.45-1 1-1h3c0-1.11.89-2 2-2 1.11 0 2 .89 2 2h3c.55 0 1 .45 1 1v5h-1V6H1v9h10v-2zM2 5h8c0-.55-.45-1-1-1H8c-.55 0-1-.45-1-1s-.45-1-1-1-1 .45-1 1-.45 1-1 1H3c-.55 0-1 .45-1 1z"></path></svg>
+
+	...#	<span class="copia" id ="lsblk1"> lsblk -do name,tran | grep usb </span> 
 	
 </code> 
 
@@ -136,7 +111,7 @@ altrimenti continuare, lanciando il comando:
 l'output di 2 righe  dovrebbe somigliare a questo:
 
 <br>
-	<code>
+	<code class "outout">
 	  ...# sdb  usb <br>
 	  ...# sdc  usb      <== questa è la penna da installare !!!!
    </code>	
@@ -147,33 +122,36 @@ l'output di 2 righe  dovrebbe somigliare a questo:
 continuare, lanciando il comando:
 
 <br>
-	<code>
-	...# pendest="sdc" 
+	<code><svg onclick="copia( pendest )" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2 13h4v1H2v-1zm5-6H2v1h5V7zm2 3V8l-3 3 3 3v-2h5v-2H9zM4.5 9H2v1h2.5V9zM2 12h2.5v-1H2v1zm9 1h1v2c-.02.28-.11.52-.3.7-.19.18-.42.28-.7.3H1c-.55 0-1-.45-1-1V4c0-.55.45-1 1-1h3c0-1.11.89-2 2-2 1.11 0 2 .89 2 2h3c.55 0 1 .45 1 1v5h-1V6H1v9h10v-2zM2 5h8c0-.55-.45-1-1-1H8c-.55 0-1-.45-1-1s-.45-1-1-1-1 .45-1 1-.45 1-1 1H3c-.55 0-1 .45-1 1z"></path></svg>
+
+	...# <span class="copia" id="pendest">pendest="sdc" </span> 
 	</code>	
 <br>
 </li>
 
 <li>spiana la pennetta
 <br>
-	<code>
-   ...# parted /dev/$pendest -s mklabel msdos
+	<code><svg onclick="copia(parted1 )" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2 13h4v1H2v-1zm5-6H2v1h5V7zm2 3V8l-3 3 3 3v-2h5v-2H9zM4.5 9H2v1h2.5V9zM2 12h2.5v-1H2v1zm9 1h1v2c-.02.28-.11.52-.3.7-.19.18-.42.28-.7.3H1c-.55 0-1-.45-1-1V4c0-.55.45-1 1-1h3c0-1.11.89-2 2-2 1.11 0 2 .89 2 2h3c.55 0 1 .45 1 1v5h-1V6H1v9h10v-2zM2 5h8c0-.55-.45-1-1-1H8c-.55 0-1-.45-1-1s-.45-1-1-1-1 .45-1 1-.45 1-1 1H3c-.55 0-1 .45-1 1z"></path></svg>
+
+   ...# <span class="copia" id=parted1 >parted /dev/$pendest -s mklabel msdos</span>
 	</code>	
 <br>
 </li>
 
 <li> crea la partizione per ospitare tinix 
  <br>
-	<code>
-   ...# <span> parted /dev/$pendest -s mkpart primary fat32 1MiB 3000MiB </span>
-   <svg onclick="copia( this )" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2 13h4v1H2v-1zm5-6H2v1h5V7zm2 3V8l-3 3 3 3v-2h5v-2H9zM4.5 9H2v1h2.5V9zM2 12h2.5v-1H2v1zm9 1h1v2c-.02.28-.11.52-.3.7-.19.18-.42.28-.7.3H1c-.55 0-1-.45-1-1V4c0-.55.45-1 1-1h3c0-1.11.89-2 2-2 1.11 0 2 .89 2 2h3c.55 0 1 .45 1 1v5h-1V6H1v9h10v-2zM2 5h8c0-.55-.45-1-1-1H8c-.55 0-1-.45-1-1s-.45-1-1-1-1 .45-1 1-.45 1-1 1H3c-.55 0-1 .45-1 1z"></path></svg>
+	<code><svg onclick="copia(partedpar )" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2 13h4v1H2v-1zm5-6H2v1h5V7zm2 3V8l-3 3 3 3v-2h5v-2H9zM4.5 9H2v1h2.5V9zM2 12h2.5v-1H2v1zm9 1h1v2c-.02.28-.11.52-.3.7-.19.18-.42.28-.7.3H1c-.55 0-1-.45-1-1V4c0-.55.45-1 1-1h3c0-1.11.89-2 2-2 1.11 0 2 .89 2 2h3c.55 0 1 .45 1 1v5h-1V6H1v9h10v-2zM2 5h8c0-.55-.45-1-1-1H8c-.55 0-1-.45-1-1s-.45-1-1-1-1 .45-1 1-.45 1-1 1H3c-.55 0-1 .45-1 1z"></path></svg>
 
+   ...# <span> <span class="copia" id="partedpar">parted /dev/$pendest -s mkpart primary fat32 1MiB 3000MiB </span></span>
+   
 </code>	
 <br>
 </li>
 <li> formatta la partizione con fat32
  <br>
-	<code>
-   ...#  mkfs.fat -n "DEBIAN_LIVE" -F 32 /dev/${pendest}1
+	<code> <svg onclick="copia(mkfs )" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2 13h4v1H2v-1zm5-6H2v1h5V7zm2 3V8l-3 3 3 3v-2h5v-2H9zM4.5 9H2v1h2.5V9zM2 12h2.5v-1H2v1zm9 1h1v2c-.02.28-.11.52-.3.7-.19.18-.42.28-.7.3H1c-.55 0-1-.45-1-1V4c0-.55.45-1 1-1h3c0-1.11.89-2 2-2 1.11 0 2 .89 2 2h3c.55 0 1 .45 1 1v5h-1V6H1v9h10v-2zM2 5h8c0-.55-.45-1-1-1H8c-.55 0-1-.45-1-1s-.45-1-1-1-1 .45-1 1-.45 1-1 1H3c-.55 0-1 .45-1 1z"></path></svg>
+
+   ...# <span class="copia" id="mkfs" > mkfs.fat -n "DEBIAN_LIVE" -F 32 /dev/${pendest}1</span>
 </code>	
 <br>
 </li>
@@ -181,11 +159,22 @@ continuare, lanciando il comando:
 
 <br>
 	<code>
-   ...#  mkdir pendest<br>
-   ...#  mount /dev/${pendest}1 pendest<br>
-   ...#  mkdir pensource<br>
-   ...#  mount /dev/${pensource}1 pensource<br>
-   ...#  cp -R pensource/* pendest/ ; sync <br>
+	
+	<svg onclick="copia(mkdirdest )" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2 13h4v1H2v-1zm5-6H2v1h5V7zm2 3V8l-3 3 3 3v-2h5v-2H9zM4.5 9H2v1h2.5V9zM2 12h2.5v-1H2v1zm9 1h1v2c-.02.28-.11.52-.3.7-.19.18-.42.28-.7.3H1c-.55 0-1-.45-1-1V4c0-.55.45-1 1-1h3c0-1.11.89-2 2-2 1.11 0 2 .89 2 2h3c.55 0 1 .45 1 1v5h-1V6H1v9h10v-2zM2 5h8c0-.55-.45-1-1-1H8c-.55 0-1-.45-1-1s-.45-1-1-1-1 .45-1 1-.45 1-1 1H3c-.55 0-1 .45-1 1z"></path></svg>
+   ...#  <span class="copia" id=mkdirdest >mkdir pendest</span><br>
+
+   <svg onclick="copia(mountdest  )" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2 13h4v1H2v-1zm5-6H2v1h5V7zm2 3V8l-3 3 3 3v-2h5v-2H9zM4.5 9H2v1h2.5V9zM2 12h2.5v-1H2v1zm9 1h1v2c-.02.28-.11.52-.3.7-.19.18-.42.28-.7.3H1c-.55 0-1-.45-1-1V4c0-.55.45-1 1-1h3c0-1.11.89-2 2-2 1.11 0 2 .89 2 2h3c.55 0 1 .45 1 1v5h-1V6H1v9h10v-2zM2 5h8c0-.55-.45-1-1-1H8c-.55 0-1-.45-1-1s-.45-1-1-1-1 .45-1 1-.45 1-1 1H3c-.55 0-1 .45-1 1z"></path></svg>
+   ...#  <span class="copia" id="mountdest">mount /dev/${pendest}1 pendest</span><br>
+	
+	<svg onclick="copia(mkdirsourc )" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2 13h4v1H2v-1zm5-6H2v1h5V7zm2 3V8l-3 3 3 3v-2h5v-2H9zM4.5 9H2v1h2.5V9zM2 12h2.5v-1H2v1zm9 1h1v2c-.02.28-.11.52-.3.7-.19.18-.42.28-.7.3H1c-.55 0-1-.45-1-1V4c0-.55.45-1 1-1h3c0-1.11.89-2 2-2 1.11 0 2 .89 2 2h3c.55 0 1 .45 1 1v5h-1V6H1v9h10v-2zM2 5h8c0-.55-.45-1-1-1H8c-.55 0-1-.45-1-1s-.45-1-1-1-1 .45-1 1-.45 1-1 1H3c-.55 0-1 .45-1 1z"></path></svg>
+   ...#  <span class="copia" id="mkdirsourc" >mkdir pensource</span><br>
+	
+	<svg onclick="copia(mountsourc )" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2 13h4v1H2v-1zm5-6H2v1h5V7zm2 3V8l-3 3 3 3v-2h5v-2H9zM4.5 9H2v1h2.5V9zM2 12h2.5v-1H2v1zm9 1h1v2c-.02.28-.11.52-.3.7-.19.18-.42.28-.7.3H1c-.55 0-1-.45-1-1V4c0-.55.45-1 1-1h3c0-1.11.89-2 2-2 1.11 0 2 .89 2 2h3c.55 0 1 .45 1 1v5h-1V6H1v9h10v-2zM2 5h8c0-.55-.45-1-1-1H8c-.55 0-1-.45-1-1s-.45-1-1-1-1 .45-1 1-.45 1-1 1H3c-.55 0-1 .45-1 1z"></path></svg>
+   
+   ...#  <span class="copia" id="mountsourc">mount /dev/${pensource}1 pensource</span><br>
+	
+	<svg onclick="copia(cp )" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2 13h4v1H2v-1zm5-6H2v1h5V7zm2 3V8l-3 3 3 3v-2h5v-2H9zM4.5 9H2v1h2.5V9zM2 12h2.5v-1H2v1zm9 1h1v2c-.02.28-.11.52-.3.7-.19.18-.42.28-.7.3H1c-.55 0-1-.45-1-1V4c0-.55.45-1 1-1h3c0-1.11.89-2 2-2 1.11 0 2 .89 2 2h3c.55 0 1 .45 1 1v5h-1V6H1v9h10v-2zM2 5h8c0-.55-.45-1-1-1H8c-.55 0-1-.45-1-1s-.45-1-1-1-1 .45-1 1-.45 1-1 1H3c-.55 0-1 .45-1 1z"></path></svg>
+   ...#  <span class="copia" id="cp">cp -R pensource/* pendest/ ; sync</span> <br>
 
 </code>	
 <br>
@@ -193,10 +182,15 @@ continuare, lanciando il comando:
 <li> installa il boot-manager syslinux....
 <br>
 	<code>
-	...#  syslinux -i /dev/${pendest}1<br>
-  
-   ...#  dd conv=notrunc bs=440 count=1 if=/usr/lib/SYSLINUX/mbr.bin of=/dev/$pendest<br>
-   ...#  parted /dev/$pendest set 1 boot on<br>
+
+	<svg onclick="copia(syslin )" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2 13h4v1H2v-1zm5-6H2v1h5V7zm2 3V8l-3 3 3 3v-2h5v-2H9zM4.5 9H2v1h2.5V9zM2 12h2.5v-1H2v1zm9 1h1v2c-.02.28-.11.52-.3.7-.19.18-.42.28-.7.3H1c-.55 0-1-.45-1-1V4c0-.55.45-1 1-1h3c0-1.11.89-2 2-2 1.11 0 2 .89 2 2h3c.55 0 1 .45 1 1v5h-1V6H1v9h10v-2zM2 5h8c0-.55-.45-1-1-1H8c-.55 0-1-.45-1-1s-.45-1-1-1-1 .45-1 1-.45 1-1 1H3c-.55 0-1 .45-1 1z"></path></svg>
+	...#  <span class="copia" id="syslin">syslinux -i /dev/${pendest}1</span><br>
+  <svg onclick="copia(dd )"viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2 13h4v1H2v-1zm5-6H2v1h5V7zm2 3V8l-3 3 3 3v-2h5v-2H9zM4.5 9H2v1h2.5V9zM2 12h2.5v-1H2v1zm9 1h1v2c-.02.28-.11.52-.3.7-.19.18-.42.28-.7.3H1c-.55 0-1-.45-1-1V4c0-.55.45-1 1-1h3c0-1.11.89-2 2-2 1.11 0 2 .89 2 2h3c.55 0 1 .45 1 1v5h-1V6H1v9h10v-2zM2 5h8c0-.55-.45-1-1-1H8c-.55 0-1-.45-1-1s-.45-1-1-1-1 .45-1 1-.45 1-1 1H3c-.55 0-1 .45-1 1z"></path></svg>
+
+   ...#  <span class="copia" id="dd">dd conv=notrunc bs=440 count=1 if=/usr/lib/SYSLINUX/mbr.bin of=/dev/$pendest</span><br>
+	<svg onclick="copia(booton )" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2 13h4v1H2v-1zm5-6H2v1h5V7zm2 3V8l-3 3 3 3v-2h5v-2H9zM4.5 9H2v1h2.5V9zM2 12h2.5v-1H2v1zm9 1h1v2c-.02.28-.11.52-.3.7-.19.18-.42.28-.7.3H1c-.55 0-1-.45-1-1V4c0-.55.45-1 1-1h3c0-1.11.89-2 2-2 1.11 0 2 .89 2 2h3c.55 0 1 .45 1 1v5h-1V6H1v9h10v-2zM2 5h8c0-.55-.45-1-1-1H8c-.55 0-1-.45-1-1s-.45-1-1-1-1 .45-1 1-.45 1-1 1H3c-.55 0-1 .45-1 1z"></path></svg>
+   
+   ...#  <span class="copia" id="booton">parted /dev/$pendest set 1 boot on</span><br>
     </code>	
 <br>
 </li>
@@ -205,13 +199,13 @@ continuare, lanciando il comando:
 
 <br>
 	<code>
-  ... # echo -e "n\np\n2\n\n\nw" |fdisk /dev/$pendest <br>
-  ... # mkfs.ext4 /dev/${pendest}2 <br>
-  ... # e2label /dev/${pendest}2 persistence <br>
-  ... # mkdir per <br>
-  ... # mount /dev/${pendest}2 per<br>
-  ... # echo "/ union" >> per/persistence.conf ; sync <br>
-  ... # umount  per ; umount pendest ; umount pensource 
+  ... # <span class="copia">echo -e "n\np\n2\n\n\nw" |fdisk /dev/$pendest </span><br>
+  ... # <span class="copia">mkfs.ext4 /dev/${pendest}2</span> <br>
+  ... # <span class="copia">e2label /dev/${pendest}2 persistence</span> <br>
+  ... # <span class="copia">mkdir per </span><br>
+  ... # <span class="copia">mount /dev/${pendest}2 per</span><br>
+  ... # <span class="copia">echo "/ union" >> per/persistence.conf ; sync</span> <br>
+  ... # <span class="copia">umount  per ; umount pendest ; umount pensource </span>
    </code>	
 <br>
 
@@ -219,35 +213,9 @@ continuare, lanciando il comando:
 
  
 
-
-<br>
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-	
-	
-	
-
-
-
-
-
-
 </ul>
 
+	</html>
 
 spiana la pennetta
 
@@ -260,17 +228,6 @@ spiana la pennetta
 
 ###############
 comando
-
-lsblk -do name,tran,rm
-
-es. output
-TRAN   NAME  RM
-       loop0  0
-sata   sda    0
-sata   sdb    0
-usb    sdc    1
-ata    sr0    1
-
 
 
 
@@ -292,572 +249,3 @@ mountuing of img file
 https://www.linuxquestions.org/questions/linux-general-1/how-to-mount-img-file-882386/
 
 
-in questo caso il nome della pennetta è sdb
-
-nel comando che segue sostituire sdX con il nome della pennetta (esempio sdb)
-root@tiniX:/home/user# disco="sdX"
-Scaricare l'ultima immagine e copiare l'immagine sulla pennetta con i comandi :
-root@tiniX:/home/user# wget  http://192.168.21.200/tinix/tinix-latest.img
-root@tinix:/home/user# dd if=tinix-latest.img of=/dev/$disco ; sync
-Attenzione che queso comando DD impiega parecchio, portate pazienza..(cira 10 minuti)
-
-
-
-root@tiniX:/home/user# echo -e "n\np\n2\n\n\nw" |fdisk /dev/$disco
-
-
-il comando che segue crea il file system sulla partizione della persistenza (impiega circa 1 minuto)
-
-root@tiniX:/home/user# mkfs.ext4 /dev/${disco}2
-root@tiniX:/home/user# e2label /dev/${disco}2 persistence
-root@tiniX:/home/user# mkdir per
-Se avete creato in precedenza una pennetta l'ultimo comando comunica “file gia esistente o giu di li”
-
-root@tiniX:/home/user# mount /dev/${disco}2 per
-root@tiniX:/home/user# echo "/ union" >> per/persistence.conf ; sync
-root@tiniX:/home/user# umount per
-ora la pennetta è pronta, smontarla e collaudarla. Happy 'tiniXing !
-
-ps : se avete effettuato la copia da un sistema live persistente si consiglia rimuovere l'immagine (2GB) per liberare spazio dalla partizione persistente.
-
-Il comando:
-
-root@tiniX:/home/user# rm tinix-latest.img
-
-root@hexacore:/PAOLO/tini-X_10# 
-
-
-################
-montare img file ........
-https://www.linuxquestions.org/questions/linux-general-1/how-to-mount-img-file-882386/
-
-
-
-</html>
-<!DOCTYPE html>
-<head>
-<style >
-code {
-  background-color: #eee;
-  border: 1px solid #999;
-  display: block;
-  padding: 20px;
-}
-</style>
-<script>
- function copia( o ){ 
-	// alert ( stringa);
-	stringa= o.parentElement.querySelector('span').innerHTML;
-	
-	 const el = document.createElement('textarea');
-  el.value = stringa;
-  el.setAttribute('readonly', '');
-  el.style.position = 'absolute';
-  el.style.left = '-9999px';
-  document.body.appendChild(el);
-  el.select();
-  document.execCommand('copy');
-  document.body.removeChild(el);
-	 
-	 }
- 
- 
-</script>
-</head>
-<html>
-	<h2> Creare tinix da una tinix </h2>
-<ul>
-<li> aprire un terminale e digitare :
-<br>
-<code>
-	user@tiniX:~$ # sudo su
-
-</code>	
-<br> il terminale dovrebbe apparire ora nel seguente modo:
-<br>	
-<code class=output>
-	root@tiniX:/home/user# # 
-
-</code>	
-<br>
-	
-	
-<li> determinare il nome della penna su cui sta girando tini-X
-	<br>
-	<b>con la sola penna di tini-X inserita</b>  aprire un terminale e 
-	digitare il comando : 
-<br>
-<code>
-	...#   lsblk -do name,tran | grep usb
-
-</code>	
-<br>
-
-	l'output di una riga sola dovrebbe somigliare a questo:
-<br>
-	
-	<code>
-	  ...#    sdb  usb 
-   </code>	
-<br>
-
-
-se vi sono piu righe di output ...TO BE CONTIUNED
-altrimenti continuare, lanciando il comando:
-
-<br>
-	<code>
-	...# pensource="sdb" 
-	</code>	
-<br>
-</li>
-<li> insreire ora la penna su cui installare tini-X, 
-<br>aspettare un paio di secondi e poi lanciare il comando: <br>
-<code>
-
-	...#	lsblk -do name,tran | grep usb 
-	
-</code> 
-
-<br>
-l'output di 2 righe  dovrebbe somigliare a questo:
-
-<br>
-	<code>
-	  ...# sdb  usb <br>
-	  ...# sdc  usb      <== questa è la penna da installare !!!!
-   </code>	
-
-<br>
-"sdc" e la pennetta da installare ....
-
-continuare, lanciando il comando:
-
-<br>
-	<code>
-	...# pendest="sdc" 
-	</code>	
-<br>
-</li>
-
-<li>spiana la pennetta
-<br>
-	<code>
-   ...# parted /dev/$pendest -s mklabel msdos
-	</code>	
-<br>
-</li>
-
-<li> crea la partizione per ospitare tinix 
- <br>
-	<code>
-   ...# <span> parted /dev/$pendest -s mkpart primary fat32 1MiB 3000MiB </span>
-   <svg onclick="copia( this )" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2 13h4v1H2v-1zm5-6H2v1h5V7zm2 3V8l-3 3 3 3v-2h5v-2H9zM4.5 9H2v1h2.5V9zM2 12h2.5v-1H2v1zm9 1h1v2c-.02.28-.11.52-.3.7-.19.18-.42.28-.7.3H1c-.55 0-1-.45-1-1V4c0-.55.45-1 1-1h3c0-1.11.89-2 2-2 1.11 0 2 .89 2 2h3c.55 0 1 .45 1 1v5h-1V6H1v9h10v-2zM2 5h8c0-.55-.45-1-1-1H8c-.55 0-1-.45-1-1s-.45-1-1-1-1 .45-1 1-.45 1-1 1H3c-.55 0-1 .45-1 1z"></path></svg>
-
-</code>	
-<br>
-</li>
-<li> formatta la partizione con fat32
- <br>
-	<code>
-   ...#  mkfs.fat -n "DEBIAN_LIVE" -F 32 /dev/${pendest}1
-</code>	
-<br>
-</li>
-<li> copia i file di tinix nella partizione.. 
-
-<br>
-	<code>
-   ...#  mkdir pendest<br>
-   ...#  mount /dev/${pendest}1 pendest<br>
-   ...#  mkdir pensource<br>
-   ...#  mount /dev/${pensource}1 pensource<br>
-   ...#  cp -R pensource/* pendest/ ; sync <br>
-
-</code>	
-<br>
-</li>
-<li> installa il boot-manager syslinux....
-<br>
-	<code>
-	...#  syslinux -i /dev/${pendest}1<br>
-  
-   ...#  dd conv=notrunc bs=440 count=1 if=/usr/lib/SYSLINUX/mbr.bin of=/dev/$pendest<br>
-   ...#  parted /dev/$pendest set 1 boot on<br>
-    </code>	
-<br>
-</li>
-
-<li> Creazione partizione per la persistenza...
-
-<br>
-	<code>
-  ... # echo -e "n\np\n2\n\n\nw" |fdisk /dev/$pendest <br>
-  ... # mkfs.ext4 /dev/${pendest}2 <br>
-  ... # e2label /dev/${pendest}2 persistence <br>
-  ... # mkdir per <br>
-  ... # mount /dev/${pendest}2 per<br>
-  ... # echo "/ union" >> per/persistence.conf ; sync <br>
-  ... # umount  per ; umount pendest ; umount pensource 
-   </code>	
-<br>
-
-</li>
-
- 
-
-
-<br>
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-	
-	
-	
-
-
-
-
-
-
-</ul>
-
-
-spiana la pennetta
-
-   parted /dev/sdb -s mklabel msdos
-
-
-  
-  
-  
-
-###############
-comando
-
-lsblk -do name,tran,rm
-
-es. output
-TRAN   NAME  RM
-       loop0  0
-sata   sda    0
-sata   sdb    0
-usb    sdc    1
-ata    sr0    1
-
-
-
-
-#################
-
-
-/var/lib/usbutils/usb.ids
-
-
-########################
-
-
-installare syslinux
-
-apt install syslinux
-##############################
-comando utile 
-mountuing of img file
-https://www.linuxquestions.org/questions/linux-general-1/how-to-mount-img-file-882386/
-
-
-in questo caso il nome della pennetta è sdb
-
-nel comando che segue sostituire sdX con il nome della pennetta (esempio sdb)
-root@tiniX:/home/user# disco="sdX"
-Scaricare l'ultima immagine e copiare l'immagine sulla pennetta con i comandi :
-root@tiniX:/home/user# wget  http://192.168.21.200/tinix/tinix-latest.img
-root@tinix:/home/user# dd if=tinix-latest.img of=/dev/$disco ; sync
-Attenzione che queso comando DD impiega parecchio, portate pazienza..(cira 10 minuti)
-
-
-
-root@tiniX:/home/user# echo -e "n\np\n2\n\n\nw" |fdisk /dev/$disco
-
-
-il comando che segue crea il file system sulla partizione della persistenza (impiega circa 1 minuto)
-
-root@tiniX:/home/user# mkfs.ext4 /dev/${disco}2
-root@tiniX:/home/user# e2label /dev/${disco}2 persistence
-root@tiniX:/home/user# mkdir per
-Se avete creato in precedenza una pennetta l'ultimo comando comunica “file gia esistente o giu di li”
-
-root@tiniX:/home/user# mount /dev/${disco}2 per
-root@tiniX:/home/user# echo "/ union" >> per/persistence.conf ; sync
-root@tiniX:/home/user# umount per
-ora la pennetta è pronta, smontarla e collaudarla. Happy 'tiniXing !
-
-ps : se avete effettuato la copia da un sistema live persistente si consiglia rimuovere l'immagine (2GB) per liberare spazio dalla partizione persistente.
-
-Il comando:
-
-root@tiniX:/home/user# rm tinix-latest.img
-
-root@hexacore:/PAOLO/tini-X_10# 
-
-
-################
-montare img file ........
-https://www.linuxquestions.org/questions/linux-general-1/how-to-mount-img-file-882386/
-
-
-
-</html>
-
-<li> determinare il nome della penna su cui sta girando tini-X
-	<br>
-	<b>con la sola penna di tini-X inserita</b>  aprire un terminale e 
-	digitare il comando : 
-<br>
-<code>
-	...#   lsblk -do name,tran | grep usb
-
-</code>	
-<br>
-
-	l'output di una riga sola dovrebbe somigliare a questo:
-<br>
-	
-	<code>
-	  ...#    sdb  usb 
-   </code>	
-<br>
-
-
-se vi sono piu righe di output ...TO BE CONTIUNED
-altrimenti continuare, lanciando il comando:
-
-<br>
-	<code>
-	...# pensource="sdb" 
-	</code>	
-<br>
-</li>
-<li> insreire ora la penna su cui installare tini-X, 
-<br>aspettare un paio di secondi e poi lanciare il comando: <br>
-<code>
-
-	...#	lsblk -do name,tran | grep usb 
-	
-</code> 
-
-<br>
-l'output di 2 righe  dovrebbe somigliare a questo:
-
-<br>
-	<code>
-	  ...# sdb  usb <br>
-	  ...# sdc  usb      <== questa è la penna da installare !!!!
-   </code>	
-
-<br>
-"sdc" e la pennetta da installare ....
-
-continuare, lanciando il comando:
-
-<br>
-	<code>
-	...# pendest="sdc" 
-	</code>	
-<br>
-</li>
-
-<li>spiana la pennetta
-<br>
-	<code>
-   ...# parted /dev/$pendest -s mklabel msdos
-	</code>	
-<br>
-</li>
-
-<li> crea la partizione per ospitare tinix 
- <br>
-	<code>
-   ...#  parted /dev/$pendest -s mkpart primary fat32 1MiB 3000MiB
-   <svg onclick="copia( 'parted /dev/$pendest -s mkpart primary fat32 1MiB 3000MiB')" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2 13h4v1H2v-1zm5-6H2v1h5V7zm2 3V8l-3 3 3 3v-2h5v-2H9zM4.5 9H2v1h2.5V9zM2 12h2.5v-1H2v1zm9 1h1v2c-.02.28-.11.52-.3.7-.19.18-.42.28-.7.3H1c-.55 0-1-.45-1-1V4c0-.55.45-1 1-1h3c0-1.11.89-2 2-2 1.11 0 2 .89 2 2h3c.55 0 1 .45 1 1v5h-1V6H1v9h10v-2zM2 5h8c0-.55-.45-1-1-1H8c-.55 0-1-.45-1-1s-.45-1-1-1-1 .45-1 1-.45 1-1 1H3c-.55 0-1 .45-1 1z"></path></svg>
-
-</code>	
-<br>
-</li>
-<li> formatta la partizione con fat32
- <br>
-	<code>
-   ...#  mkfs.fat -n "DEBIAN_LIVE" -F 32 /dev/${pendest}1
-</code>	
-<br>
-</li>
-<li> copia i file di tinix nella partizione.. 
-
-<br>
-	<code>
-   ...#  mkdir pendest<br>
-   ...#  mount /dev/${pendest}1 pendest<br>
-   ...#  mkdir pensource<br>
-   ...#  mount /dev/${pensource}1 pensource<br>
-   ...#  cp -R pensource/* pendest/ ; sync <br>
-
-</code>	
-<br>
-</li>
-<li> installa il boot-manager syslinux....
-<br>
-	<code>
-	...#  syslinux -i /dev/${pendest}1<br>
-  
-   ...#  dd conv=notrunc bs=440 count=1 if=/usr/lib/SYSLINUX/mbr.bin of=/dev/$pendest<br>
-   ...#  parted /dev/$pendest set 1 boot on<br>
-    </code>	
-<br>
-</li>
-
-<li> Creazione partizione per la persistenza...
-
-<br>
-	<code>
-  ... # echo -e "n\np\n2\n\n\nw" |fdisk /dev/$pendest <br>
-  ... # mkfs.ext4 /dev/${pendest}2 <br>
-  ... # e2label /dev/${pendest}2 persistence <br>
-  ... # mkdir per <br>
-  ... # mount /dev/${pendest}2 per<br>
-  ... # echo "/ union" >> per/persistence.conf ; sync <br>
-  ... # umount  per ; umount pendest ; umount pensource 
-   </code>	
-<br>
-
-</li>
-
- 
-
-
-<br>
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-	
-	
-	
-
-
-
-
-
-
-</ul>
-
-
-spiana la pennetta
-
-   parted /dev/sdb -s mklabel msdos
-
-
-  
-  
-  
-
-###############
-comando
-
-lsblk -do name,tran,rm
-
-es. output
-TRAN   NAME  RM
-       loop0  0
-sata   sda    0
-sata   sdb    0
-usb    sdc    1
-ata    sr0    1
-
-
-
-
-#################
-
-
-/var/lib/usbutils/usb.ids
-
-
-########################
-
-
-installare syslinux
-
-apt install syslinux
-##############################
-comando utile 
-mountuing of img file
-https://www.linuxquestions.org/questions/linux-general-1/how-to-mount-img-file-882386/
-
-
-in questo caso il nome della pennetta è sdb
-
-nel comando che segue sostituire sdX con il nome della pennetta (esempio sdb)
-root@tiniX:/home/user# disco="sdX"
-Scaricare l'ultima immagine e copiare l'immagine sulla pennetta con i comandi :
-root@tiniX:/home/user# wget  http://192.168.21.200/tinix/tinix-latest.img
-root@tinix:/home/user# dd if=tinix-latest.img of=/dev/$disco ; sync
-Attenzione che queso comando DD impiega parecchio, portate pazienza..(cira 10 minuti)
-
-
-
-root@tiniX:/home/user# echo -e "n\np\n2\n\n\nw" |fdisk /dev/$disco
-
-
-il comando che segue crea il file system sulla partizione della persistenza (impiega circa 1 minuto)
-
-root@tiniX:/home/user# mkfs.ext4 /dev/${disco}2
-root@tiniX:/home/user# e2label /dev/${disco}2 persistence
-root@tiniX:/home/user# mkdir per
-Se avete creato in precedenza una pennetta l'ultimo comando comunica “file gia esistente o giu di li”
-
-root@tiniX:/home/user# mount /dev/${disco}2 per
-root@tiniX:/home/user# echo "/ union" >> per/persistence.conf ; sync
-root@tiniX:/home/user# umount per
-ora la pennetta è pronta, smontarla e collaudarla. Happy 'tiniXing !
-
-ps : se avete effettuato la copia da un sistema live persistente si consiglia rimuovere l'immagine (2GB) per liberare spazio dalla partizione persistente.
-
-Il comando:
-
-root@tiniX:/home/user# rm tinix-latest.img
-
-root@hexacore:/PAOLO/tini-X_10# 
-
-
-################
-montare img file ........
-https://www.linuxquestions.org/questions/linux-general-1/how-to-mount-img-file-882386/
-
-
-
-</html>
