@@ -18,9 +18,10 @@ function aggiorna(){
         if ((i_orario < i_oraIng ) || (i_orario > i_oraUsc ))  {
             oraScol="Free Time!!"
         }
-
+        else {
         // orascol è la ora scolastica [ 1,7]
         var oraScol= Math.floor((i_orario - i_oraIng) /54)+1 ;
+       }
         var porao=document.getElementById("pora");
         porao.innerHTML=oraScol;
         
