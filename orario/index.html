@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<head>
+<script type="text/javascript" >
+
+
+function aggiorna(){
+     	  var d = new Date();
+        var t = d.getTime();
+        var giorno=d.getDay();
+        var ora=d.getHours();
+        var minuti=d.getMinutes();
+        
+        const i_oraIng = 8*60 ;
+        const i_oraUsc = 14*60 + 18 ;
+        var i_orario =  ora*60 + minuti;
+
+        if ((i_orario < i_oraIng ) || (i_orario > i_oraUsc ))  {
+            oraScol="Free Time!!"
+        }
+
+        // orascol è la ora scolastica [ 1,7]
+        var oraScol= Math.floor((i_orario - i_oraIng) /54)+1 ;
+        var porao=document.getElementById("pora");
+        porao.innerHTML=oraScol;
+        
+}
+</script>
+</head>
+
+
+<body onload="aggiorna()">
+<p style=" text-align:center " id="pora" onclick="aggiorna()">
+
+
+</p>
+<img src="../orario.png" alt="">
+</body>
